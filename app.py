@@ -1,5 +1,8 @@
 import telegram
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+import requests
+
+req = requests.get('https://newapi-6ckm.onrender.com/api')
 
 token ='6293141367:AAForYshseRqGS7AImNjCJjOg0sXbXIA3yw'
 
@@ -11,10 +14,16 @@ def help(update , context):
     This is my test bot. Created by Johnny Osei Aidoo.
     use
     /start => to start the bot
+    /help => this message
+    /suprise => to see a suprise
     """)
+
+def suprise(update, context):
+    update.message.reply_text(f'do you know {req}')
 
 def handleText(update, context):
     update.message.reply_text(f"You said {update.message.text}")
+
 
 
 def main():
@@ -23,9 +32,12 @@ def main():
     
     start_handler = CommandHandler("start", start)
     dp.add_handler(start_handler)
+
     help_handler = CommandHandler('help', help)
     dp.add_handler(help_handler)
 
+    suprise_handler = CommandHandler('suprise',suprise)
+    dp.add_handler(suprise_handler)
 
     dp.add_handler(MessageHandler(Filters.text, handleText))
 
