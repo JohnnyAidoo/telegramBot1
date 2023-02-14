@@ -1,8 +1,6 @@
 import telegram
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-import requests
-
-req = requests.get('https://newapi-6ckm.onrender.com/api').text
+from req import One ,head
 
 token ='6293141367:AAForYshseRqGS7AImNjCJjOg0sXbXIA3yw'
 
@@ -19,7 +17,7 @@ def help(update , context):
     """)
 
 def suprise(update, context):
-    update.message.reply_text(f'do you know {req}')
+    update.message.reply_text(f'do you know {head,  One}')
 
 def handleText(update, context):
     update.message.reply_text(f"You said {update.message.text}")
