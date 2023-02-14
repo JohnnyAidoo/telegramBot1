@@ -2,7 +2,7 @@ import telegram
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import requests
 
-req = requests.get('https://newapi-6ckm.onrender.com/api')
+req = requests.get('https://newapi-6ckm.onrender.com/api').text
 
 token ='6293141367:AAForYshseRqGS7AImNjCJjOg0sXbXIA3yw'
 
@@ -46,3 +46,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    
